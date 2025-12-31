@@ -1,0 +1,239 @@
+/* Import a romantic cursive font (Google Fonts for elegance) */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Dancing Script', cursive; /* Romantic cursive font */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ffe6f0, #ffb3ba, #d4a5c7, #f4e1d2); /* Soft gradient with pink, red, purple, gold tones */
+    color: #8b5a2b; /* Warm brown for text */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white for overlay */
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3em;
+    color: #d63384; /* Deep pink */
+    text-shadow: 0 0 10px rgba(214, 51, 132, 0.5); /* Subtle glow */
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Countdown Section */
+#countdown {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#countdown h2 {
+    font-size: 2em;
+    color: #8b5a2b;
+    margin-bottom: 20px;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.time-unit {
+    text-align: center;
+}
+
+.time-unit span {
+    font-size: 3em;
+    font-weight: bold;
+    color: #d63384;
+    display: block;
+    text-shadow: 0 0 10px rgba(214, 51, 132, 0.5); /* Glow effect */
+}
+
+.time-unit p {
+    font-size: 1.2em;
+    color: #8b5a2b;
+}
+
+/* Fireworks Animation */
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #ffd700, #ff69b4, #d63384); /* Gold, pink, red bursts */
+    border-radius: 50%;
+    animation: burst 2s infinite ease-in-out;
+}
+
+.firework:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.firework:nth-child(2) { top: 20%; left: 80%; animation-delay: 0.5s; }
+.firework:nth-child(3) { top: 30%; left: 40%; animation-delay: 1s; }
+.firework:nth-child(4) { top: 40%; left: 60%; animation-delay: 1.5s; }
+.firework:nth-child(5) { top: 50%; left: 10%; animation-delay: 2s; }
+.firework:nth-child(6) { top: 60%; left: 90%; animation-delay: 2.5s; }
+.firework:nth-child(7) { top: 70%; left: 30%; animation-delay: 3s; }
+.firework:nth-child(8) { top: 80%; left: 70%; animation-delay: 3.5s; }
+.firework:nth-child(9) { top: 90%; left: 50%; animation-delay: 4s; }
+.firework:nth-child(10) { top: 15%; left: 85%; animation-delay: 4.5s; }
+
+@keyframes burst {
+    0% { transform: scale(0); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.8; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* New Year Message */
+#new-year-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 20;
+    animation: fadeInGlow 3s ease-in-out;
+}
+
+#new-year-message h2 {
+    font-size: 3em;
+    color: #ffd700; /* Gold */
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); /* Strong glow */
+}
+
+/* Surprise Button and Message */
+#surprise-btn {
+    background: linear-gradient(45deg, #ff69b4, #d63384);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-family: 'Dancing Script', cursive;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#surprise-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+#surprise-message {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    margin: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Romantic Message Section */
+#message {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    margin: 20px;
+    font-size: 1.5em;
+    line-height: 1.6;
+}
+
+/* Music Button */
+#music-btn {
+    background: linear-gradient(45deg, #d4a5c7, #f4e1d2);
+    color: #8b5a2b;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family: 'Dancing Script', cursive;
+    border-radius: 20px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    font-size: 0.9em;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Floating Hearts Animation (Triggered after midnight) */
+.heart {
+    position: absolute;
+    font-size: 2em;
+    color: #ff69b4;
+    animation: float 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* General Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInGlow {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 { font-size: 2em; }
+    #countdown h2 { font-size: 1.5em; }
+    .time-unit span { font-size: 2em; }
+    .timer { flex-direction: column; gap: 10px; }
+    #new-year-message h2 { font-size: 2em; }
+    #message { font-size: 1.2em; }
+    #music-btn { bottom: 10px; right: 10px; }
+}

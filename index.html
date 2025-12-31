@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>New Year</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A New Year With You</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>A New Year With You</h1>
+    </header>
+
+    <!-- Countdown Section -->
+    <section id="countdown">
+        <h2>Counting Down to Our New Year Together</h2>
+        <div class="timer">
+            <div class="time-unit">
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+            <div class="time-unit">
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+            <div class="time-unit">
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+            <div class="time-unit">
+                <span id="seconds">00</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Music Embed -->
+    <section id="music">
+        <h2>(11/05/25)</h2>
+        <!-- Embed YouTube Video (now set to "Blue" by Yung Kai for background play) -->
+        <iframe width="0" height="0" 
+            src="https://www.youtuberepeater.com/watch?v=7ghwp6fNsFk#gsc.tab=0" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
+    </section>
+
+    <!-- Fireworks Container (Hidden initially, shown at midnight) -->
+    <div id="fireworks" class="hidden">
+        <!-- Multiple divs for fireworks bursts (animated via CSS) -->
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+    </div>
+
+    <!-- New Year Message (Hidden initially, shown at midnight) -->
+    <div id="new-year-message" class="hidden">
+        <h2>Happy New Year, Jhellycar(Ai Ca), iloveyousomucchhhhhhh....❤️</h2>
+    </div>
+
+    <!-- Surprise Button (Reveals extra message on click) -->
+    <button id="surprise-btn">Click for a Surprise</button>
+    <div id="surprise-message" class="hidden">
+        <p>HAPPY NEW YEAR, I hope all your wishes come true 💖</p>
+    </div>
+
+    <!-- Romantic Message Section -->
+    <section id="message">
+        <p>As the new year begins, I just want you to know that you are my favorite part of every year. Thank you for being you. I love you, Aica ❤️</p>
+    </section>
+
+    <!-- Play/Pause Button for Music -->
+    <button id="music-btn">Play Music</button>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with love for you. Happy New Year! 🎉</p>
+    </footer>
+
+    <script>
+        // Countdown Logic
+        function updateCountdown() {
+            const now = new Date();
+            const newYear = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0); // Next Jan 1, 00:00
+            const timeDiff = newYear - now;
+
+            if (timeDiff <= 0) {
+                // It's midnight! Trigger fireworks and message
+                document.getElementById('fireworks').classList.remove('hidden');
+                document.getElementById('new-year-message').classList.remove('hidden');
+                // Start floating hearts
+                startFloatingHearts();
+                clearInterval(countdownInterval); // Stop countdown
+                return;
+            }
+
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Start countdown update every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        // Floating Hearts Function (Called after midnight)
+        function startFloatingHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000); // Remove after animation
+            }, 500); // New heart every 0.5 seconds
+        }
+
+        // Surprise Button Functionality
+        const surpriseBtn = document.getElementById('surprise-btn');
+        const surpriseMessage = document.getElementById('surprise-message');
+
+        surpriseBtn.addEventListener('click', () => {
+            surpriseMessage.classList.toggle('hidden'); // Toggle the hidden class to show/hide the message
+        });
+
+        // Music Play/Pause Functionality
+        const musicBtn = document.getElementById('music-btn');
+        const bgMusic = document.querySelector('iframe'); // Select the embedded iframe for the music
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.contentWindow.postMessage('pause', '*'); // Stop music
+                musicBtn.textContent = 'Play Music';
+            } else {
+                bgMusic.contentWindow.postMessage('play', '*'); // Play music
+                musicBtn.textContent = 'Pause Music';
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+</body>
+</html
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
